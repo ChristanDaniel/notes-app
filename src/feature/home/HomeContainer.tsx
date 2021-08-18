@@ -26,7 +26,13 @@ const HomeContainer: NextPage = () => {
     setQuestions((prevState) => prevState.concat(inputQuestion))
   }
 
-  //aqui
+  const handleCleanAll = () => {
+    localStorage.removeItem('question')
+    questions.splice(0, 1000)
+    setQuestions(questions)
+    setRenderiza(!renderiza)
+    // toast.success('Notas deletadas com sucesso')
+  }
 
   const handleDeleteQuestion = (index: number) => {
     if (index > -1) {
