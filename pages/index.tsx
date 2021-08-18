@@ -1,8 +1,16 @@
 import React from 'react'
 import Head from 'next/head'
 import type { NextPage } from 'next'
-import { HomeContainer } from '../src/feature/home/HomeContainer'
-import Header from '../src/components/Header/index'
+// import Header from '../src/components/Header/index'
+import dynamic from 'next/dynamic'
+
+const Header = dynamic(() => import('../src/components/Header'), {
+  ssr: false
+})
+
+const HomeContainer = dynamic(() => import('../src/feature/home/HomeContainer'), {
+  ssr: false
+})
 
 const Home: NextPage = () => {
   return (

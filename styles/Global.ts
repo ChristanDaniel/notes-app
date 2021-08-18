@@ -8,6 +8,12 @@ export const GlobalStyle = createGlobalStyle`
   }
 
 
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
   html {
     @media (max-width: 1080px) {
         font-size: 93,75%; //15px
