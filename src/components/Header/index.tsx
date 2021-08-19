@@ -15,7 +15,9 @@ const Header = (): JSX.Element => {
     <>
       <Headers>
         <Image src={profilePic} alt="logo" width={50} height={50} />
-        <h1>Notes-App</h1>
+        <h1>
+          Ig<span>.</span>Notes
+        </h1>
         <h3>{currentDate}</h3>
       </Headers>
     </>

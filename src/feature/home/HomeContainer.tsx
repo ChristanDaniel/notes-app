@@ -50,7 +50,10 @@ const HomeContainer: NextPage = () => {
   return (
     <HomeContainerBg>
       <HomeAside>
-        <h4>Suas anotações armazenadas online, Notes-App!</h4>
+        <h3>Notes-App</h3>
+        <h4>
+          Suas anotações armazenadas online, simples, rápido e <br /> gratuito para escrever texto e tomar notas em uma página do navegador
+        </h4>
 
         <form onSubmit={handleSendQuestion}>
           <TextareaAutosizeWrapper
