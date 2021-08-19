@@ -75,3 +75,52 @@ const TextareaAutosizeWrapper = styled.textarea`
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
   resize: none;
 `
+const NoteContainer = styled.div`
+  overflow: auto;
+  margin-bottom: 16px;
+  background-color: #fefefe;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  width: 350px;
+  height: 100px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+
+  p {
+    font-size: 14px;
+    overflow-wrap: break-word;
+    //margin-bottom: 10px
+  }
+
+  span {
+    color: #737380;
+    font-size: 10px;
+  }
+
+  button {
+    gap: 4px;
+    align-self: center;
+    font-size: 11px;
+    height: 30px;
+    border-radius: 8px;
+    /* font-weight: 500; */
+    background: #3498db;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5px;
+
+    cursor: pointer;
+    border: 0;
+
+    transition: 0.2s;
+
+    :hover {
+      filter: brightness(0.9);
+    }
+  }
+`
+
+export { HomeContainerBg, HomeAside, HomeSection, TextareaAutosizeWrapper, NoteContainer, SubtitleContainer }
