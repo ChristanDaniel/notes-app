@@ -11,6 +11,7 @@ const Header = (): JSX.Element => {
   const currentDate = format(new Date(), 'EEEEEE, d MMMM', {
     locale: ptBR
   })
+
   return (
     <>
       <Headers>

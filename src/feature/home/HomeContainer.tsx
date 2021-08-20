@@ -2,8 +2,8 @@ import React from 'react'
 import type { NextPage } from 'next'
 import { FormEvent, useEffect, useState } from 'react'
 
-import { format } from 'date-fns'
-import ptBR from 'date-fns/locale/pt-BR'
+// import { format } from 'date-fns'
+// import ptBR from 'date-fns/locale/pt-BR'
 
 import { HomeAside, HomeContainerBg, HomeSection, NoteContainer, TextareaAutosizeWrapper, SubtitleContainer, Footer } from './styles'
 
@@ -13,15 +13,21 @@ import Button from '../../components/Button'
 
 const HomeContainer: NextPage = () => {
   let questionsFromStorage
+  // let hourquestionsFromStorage
 
   if (process.browser) {
     const hasStorage = localStorage.getItem('question')
     questionsFromStorage = hasStorage ? JSON.parse(hasStorage) : []
   }
+  // if (process.browser) {
+  //   const hasStorage = localStorage.getItem('hoursquestion')
+  //   hourquestionsFromStorage = hasStorage ? JSON.parse(hasStorage) : []
+  // }
 
   const [inputQuestion, setinputQuestion] = useState('')
   const [questions, setQuestions] = useState<string[]>(questionsFromStorage)
   const [renderiza, setRenderiza] = useState(true)
+  // const [hours, setHours] = useState<string[]>()
 
   const handleSendQuestion = (event: FormEvent) => {
     event.preventDefault()
@@ -30,7 +36,16 @@ const HomeContainer: NextPage = () => {
     // const newNote = format(new Date(), 'dd MMM yyyy', {
     //   locale: ptBR
     // })
+    // setHours((prevState) => prevState.concat(newNote))
   }
+
+  // const handleDate = () => {
+  //   const newNote = format(new Date(), 'dd MMM yyyy', {
+  //     locale: ptBR
+  //   })
+  //   setHours((prevState) => prevState.concat(newNote))
+  //   setQuestions(questions)
+  // }
 
   const handleCleanAll = () => {
     localStorage.removeItem('question')
@@ -51,6 +66,7 @@ const HomeContainer: NextPage = () => {
 
   useEffect(() => {
     localStorage.setItem('question', JSON.stringify(questions))
+    // localStorage.setItem('hoursquestion', JSON.stringify(hours))
   }, [renderiza, questions])
   return (
     <HomeContainerBg>
