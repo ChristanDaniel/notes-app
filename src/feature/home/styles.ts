@@ -3,8 +3,8 @@ import styled from 'styled-components'
 // import Button from '../../components/Button'
 
 const HomeContainerBg = styled.div`
-  /* height: calc(100vh - 80px); */
-  height: 100vh;
+  height: calc(100vh - 80px);
+  /* height: 100vh; */
   background-color: #e2e2e2;
   display: flex;
   padding-top: 24px;
@@ -13,35 +13,63 @@ const HomeContainerBg = styled.div`
 
 const HomeAside = styled.aside`
   h4 {
-    color: #3498db;
+    margin: 6px 6px 6px 0;
+    color: #616480;
     margin-bottom: 12px;
+    font-size: smaller;
   }
 
   form {
     display: flex;
     flex-direction: column;
     border-right: 2px solid #616480;
-    padding-right: 200px;
+    padding-right: 150px;
   }
 
   button {
     margin-top: 14px;
   }
 `
+const Footer = styled.footer`
+  /* margin-top: 100px; */
+  margin: 100px 35px 0px;
+
+  div {
+    margin: 0 0 8px 90px;
+  }
+
+  p {
+    color: #616480;
+    margin-bottom: 12px;
+    font-size: smaller;
+  }
+`
 
 const HomeSection = styled.section`
-  h1 {
+  /* h1 {
     color: #3498db;
-  }
+  } */
 
   /* padding-left: 190px; */
 `
 const SubtitleContainer = styled.div`
   align-items: center;
-  min-width: 350px;
+  min-width: 450px;
   margin-bottom: 12px;
   display: flex;
   justify-content: space-between;
+
+  span {
+    height: 30px;
+    border-radius: 8px;
+    font-size: 200;
+    background: #3498db;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+  }
 
   button {
     height: 35px;
@@ -66,7 +94,7 @@ const SubtitleContainer = styled.div`
 `
 
 const TextareaAutosizeWrapper = styled.textarea`
-  width: 350px;
+  width: 400px;
   min-height: 180px;
   border: 0;
   padding: 16px;
@@ -81,7 +109,7 @@ const NoteContainer = styled.div`
   background-color: #fefefe;
   border-radius: 8px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-  width: 350px;
+  width: 450px;
   height: 100px;
   padding: 16px;
   display: flex;
@@ -123,4 +151,4 @@ const NoteContainer = styled.div`
   }
 `
 
-export { HomeContainerBg, HomeAside, HomeSection, TextareaAutosizeWrapper, NoteContainer, SubtitleContainer }
+export { HomeContainerBg, HomeAside, Footer, HomeSection, TextareaAutosizeWrapper, NoteContainer, SubtitleContainer }

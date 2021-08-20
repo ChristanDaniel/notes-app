@@ -2,8 +2,10 @@ import React from 'react'
 import type { NextPage } from 'next'
 import { FormEvent, useEffect, useState } from 'react'
 
-import { HomeAside, HomeContainerBg, HomeSection, NoteContainer, TextareaAutosizeWrapper, SubtitleContainer } from './styles'
-// import { edit } from './styles';
+import { format } from 'date-fns'
+import ptBR from 'date-fns/locale/pt-BR'
+
+import { HomeAside, HomeContainerBg, HomeSection, NoteContainer, TextareaAutosizeWrapper, SubtitleContainer, Footer } from './styles'
 
 import { RiDeleteBin7Fill } from 'react-icons/ri'
 // import toast, { Toaster } from 'react-hot-toast'
@@ -24,6 +26,10 @@ const HomeContainer: NextPage = () => {
   const handleSendQuestion = (event: FormEvent) => {
     event.preventDefault()
     setQuestions((prevState) => prevState.concat(inputQuestion))
+
+    // const newNote = format(new Date(), 'dd MMM yyyy', {
+    //   locale: ptBR
+    // })
   }
 
   const handleCleanAll = () => {
@@ -46,13 +52,13 @@ const HomeContainer: NextPage = () => {
   useEffect(() => {
     localStorage.setItem('question', JSON.stringify(questions))
   }, [renderiza, questions])
-
   return (
     <HomeContainerBg>
       <HomeAside>
         <h3>Notes-App</h3>
         <h4>
-          Suas anotações armazenadas online, simples, rápido e <br /> gratuito para escrever texto e tomar notas em uma página do navegador
+          Bloco de Notas Pessoal que usa o armazenamento do seu navegador <br /> para salvar suas notas e você pode simplesmente
+          <br /> excluí-las quando terminar.
         </h4>
 
         <form onSubmit={handleSendQuestion}>
@@ -65,11 +71,24 @@ const HomeContainer: NextPage = () => {
 
           <Button type="submit">Enviar Nota</Button>
         </form>
+        <Footer>
+          <div>
+            <a href="https://github.com/ChristanDaniel">Github</a>
+            <span> | </span>
+            <a href="https://www.linkedin.com/in/christian-daniel-841921210/"> Linkedin</a>
+          </div>
+          <p>
+            <span>© {new Date().getFullYear()} Notepad-App</span>
+            {' · '}
+            <span>Construido por Christian Daniel .</span>
+          </p>
+        </Footer>
       </HomeAside>
 
       <HomeSection>
         <SubtitleContainer>
           <h1>Minhas Anotações</h1>
+          <span>{questions.length} - Notas</span>
           <button onClick={() => handleCleanAll()}>
             {/* <Toaster position="bottom-right" reverseOrder={false} /> */}
             Limpar todos
