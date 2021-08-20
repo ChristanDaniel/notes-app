@@ -5,9 +5,9 @@ import { FormEvent, useEffect, useState } from 'react'
 // import { format } from 'date-fns'
 // import ptBR from 'date-fns/locale/pt-BR'
 
-import { HomeAside, HomeContainerBg, HomeSection, NoteContainer, TextareaAutosizeWrapper, SubtitleContainer, Footer } from './styles'
+import { HomeAside, HomeContainerBg, HomeSection, NoteContainer, NoteContainerDiv, TextareaAutosizeWrapper, SubtitleContainer, Footer } from './styles'
 
-import { RiDeleteBin7Fill } from 'react-icons/ri'
+import { RiEdit2Fill, RiDeleteBin7Fill } from 'react-icons/ri'
 // import toast, { Toaster } from 'react-hot-toast'
 import Button from '../../components/Button'
 
@@ -117,16 +117,19 @@ const HomeContainer: NextPage = () => {
               <>
                 <li key={index}>
                   <NoteContainer>
-                    <div>
-                      <p>{question}</p>
-                      <span>17/02/2020 - 23:10</span>
-                    </div>
+                    <p>{question}</p>
+                  </NoteContainer>
+                  <NoteContainerDiv>
+                    <span>17/02/2020 - 23:10</span>
+                    <button>
+                      <RiEdit2Fill /> Editar
+                    </button>
                     <button onClick={() => handleDeleteQuestion(index)}>
                       {/* <Toaster position="bottom-right" reverseOrder={false} /> */}
                       <RiDeleteBin7Fill />
                       Excluir
                     </button>
-                  </NoteContainer>
+                  </NoteContainerDiv>
                 </li>
               </>
             )
