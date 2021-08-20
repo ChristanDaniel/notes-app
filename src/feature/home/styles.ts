@@ -139,7 +139,33 @@ const NoteContainerDiv = styled.div`
 
   border-bottom: 1px solid #737380;
 
- 
+  span {
+    padding-right: 185px;
+  }
+
+  button {
+    gap: 4px;
+    align-self: center;
+    font-size: 11px;
+    height: 30px;
+    border-radius: 8px;
+    /* font-weight: 500; */
+    background: #e2e2e2;
+    color: #737380;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5px;
+
+    cursor: pointer;
+    border: 0;
+
+    transition: 0.2s;
+
+    :hover {
+      filter: brightness(0.9);
+    }
+  }
 `
 
 export { HomeContainerBg, HomeAside, Footer, HomeSection, TextareaAutosizeWrapper, NoteContainer, SubtitleContainer, NoteContainerDiv }
