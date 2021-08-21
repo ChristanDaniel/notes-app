@@ -45,7 +45,15 @@ const Footer = styled.footer`
   }
 `
 
-const HomeSection = styled.section``
+const HomeSection = styled.section`
+  img {
+    height: 350px;
+    background-color: #e2e2e2;
+    color: #fff;
+    opacity: 0.1;
+  }
+`
+
 const SubtitleContainer = styled.div`
   align-items: center;
   min-width: 450px;

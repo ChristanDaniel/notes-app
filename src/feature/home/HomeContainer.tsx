@@ -2,6 +2,9 @@ import React from 'react'
 import type { NextPage } from 'next'
 import { FormEvent, useEffect, useState } from 'react'
 
+import Image from 'next/image'
+import profilePic from '../../../public/noteapp.png'
+
 // import { format } from 'date-fns'
 // import ptBR from 'date-fns/locale/pt-BR'
 
@@ -10,6 +13,8 @@ import { HomeAside, HomeContainerBg, HomeSection, NoteContainer, NoteContainerDi
 import { RiEdit2Fill, RiDeleteBin7Fill } from 'react-icons/ri'
 // import toast, { Toaster } from 'react-hot-toast'
 import Button from '../../components/Button'
+
+
 
 const HomeContainer: NextPage = () => {
   let questionsFromStorage
@@ -110,31 +115,34 @@ const HomeContainer: NextPage = () => {
             Limpar todos
           </button>
         </SubtitleContainer>
-
-        <ul>
-          {questions?.map((question, index) => {
-            return (
-              <>
-                <li key={index}>
-                  <NoteContainer>
-                    <p>{question}</p>
-                  </NoteContainer>
-                  <NoteContainerDiv>
-                    <span>17/02/2020 - 23:10</span>
-                    <button>
-                      <RiEdit2Fill /> Editar
-                    </button>
-                    <button onClick={() => handleDeleteQuestion(index)}>
-                      {/* <Toaster position="bottom-right" reverseOrder={false} /> */}
-                      <RiDeleteBin7Fill />
-                      Excluir
-                    </button>
-                  </NoteContainerDiv>
-                </li>
-              </>
-            )
-          })}
-        </ul>
+        {questions.length ? (
+          <ul>
+            {questions?.map((question, index) => {
+              return (
+                <>
+                  <li key={index}>
+                    <NoteContainer>
+                      <p>{question}</p>
+                    </NoteContainer>
+                    <NoteContainerDiv>
+                      <span>17/02/2020 - 23:10</span>
+                      <button>
+                        <RiEdit2Fill /> Editar
+                      </button>
+                      <button onClick={() => handleDeleteQuestion(index)}>
+                        {/* <Toaster position="bottom-right" reverseOrder={false} /> */}
+                        <RiDeleteBin7Fill />
+                        Excluir
+                      </button>
+                    </NoteContainerDiv>
+                  </li>
+                </>
+              )
+            })}
+          </ul>
+        ) : (
+          <Image src={profilePic} alt="logo" />
+        )}
       </HomeSection>
     </HomeContainerBg>
   )
