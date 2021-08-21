@@ -14,43 +14,31 @@ import { RiEdit2Fill, RiDeleteBin7Fill } from 'react-icons/ri'
 // import toast, { Toaster } from 'react-hot-toast'
 import Button from '../../components/Button'
 
+// interface HomeProps {
+//   questions: {
+//     uid?: string
+//     noteDate: string | null
+//     description: string
+//   }
+// }
 
-
+//  export function HomeContainer(): HomeProps {
 const HomeContainer: NextPage = () => {
   let questionsFromStorage
-  // let hourquestionsFromStorage
 
   if (process.browser) {
     const hasStorage = localStorage.getItem('question')
     questionsFromStorage = hasStorage ? JSON.parse(hasStorage) : []
   }
-  // if (process.browser) {
-  //   const hasStorage = localStorage.getItem('hoursquestion')
-  //   hourquestionsFromStorage = hasStorage ? JSON.parse(hasStorage) : []
-  // }
 
   const [inputQuestion, setinputQuestion] = useState('')
-  const [questions, setQuestions] = useState<string[]>(questionsFromStorage)
+  const [questions, setQuestions] = useState(questionsFromStorage)
   const [renderiza, setRenderiza] = useState(true)
-  // const [hours, setHours] = useState<string[]>()
 
   const handleSendQuestion = (event: FormEvent) => {
     event.preventDefault()
     setQuestions((prevState) => prevState.concat(inputQuestion))
-
-    // const newNote = format(new Date(), 'dd MMM yyyy', {
-    //   locale: ptBR
-    // })
-    // setHours((prevState) => prevState.concat(newNote))
   }
-
-  // const handleDate = () => {
-  //   const newNote = format(new Date(), 'dd MMM yyyy', {
-  //     locale: ptBR
-  //   })
-  //   setHours((prevState) => prevState.concat(newNote))
-  //   setQuestions(questions)
-  // }
 
   const handleCleanAll = () => {
     localStorage.removeItem('question')
@@ -71,8 +59,8 @@ const HomeContainer: NextPage = () => {
 
   useEffect(() => {
     localStorage.setItem('question', JSON.stringify(questions))
-    // localStorage.setItem('hoursquestion', JSON.stringify(hours))
   }, [renderiza, questions])
+
   return (
     <HomeContainerBg>
       <HomeAside>

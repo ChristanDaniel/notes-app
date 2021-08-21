@@ -46,6 +46,8 @@ const Footer = styled.footer`
 `
 
 const HomeSection = styled.section`
+  overflow: auto;
+  padding-right: 12px;
   img {
     height: 350px;
     background-color: #e2e2e2;
