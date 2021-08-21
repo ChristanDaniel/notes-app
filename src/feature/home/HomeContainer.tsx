@@ -10,7 +10,9 @@ import profilePic from '../../../public/noteapp.png'
 
 import { HomeAside, HomeContainerBg, HomeSection, NoteContainer, NoteContainerDiv, TextareaAutosizeWrapper, SubtitleContainer, Footer } from './styles'
 
-import { RiEdit2Fill, RiDeleteBin7Fill } from 'react-icons/ri'
+import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { RiEdit2Fill, RiDeleteBin7Fill, RiDeleteBinFill } from 'react-icons/ri'
+
 // import toast, { Toaster } from 'react-hot-toast'
 import Button from '../../components/Button'
 
@@ -82,9 +84,13 @@ const HomeContainer: NextPage = () => {
         </form>
         <Footer>
           <div>
-            <a href="https://github.com/ChristanDaniel">Github</a>
+            <a href="https://github.com/ChristanDaniel" target="_blank" rel="noreferrer noopener">
+              <FaGithub /> Github
+            </a>
             <span> | </span>
-            <a href="https://www.linkedin.com/in/christian-daniel-841921210/"> Linkedin</a>
+            <a href="https://www.linkedin.com/in/christian-daniel-841921210/" target="_blank" rel="noreferrer noopener">
+              <FaLinkedin /> Linkedin
+            </a>
           </div>
           <p>
             <span>© {new Date().getFullYear()} Notepad-App</span>
@@ -100,7 +106,7 @@ const HomeContainer: NextPage = () => {
           <span>{questions.length} - Notas</span>
           <button onClick={() => handleCleanAll()}>
             {/* <Toaster position="bottom-right" reverseOrder={false} /> */}
-            Limpar todos
+            <RiDeleteBinFill /> Limpar todos
           </button>
         </SubtitleContainer>
         {questions.length ? (

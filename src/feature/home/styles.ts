@@ -35,7 +35,7 @@ const Footer = styled.footer`
   margin: 100px 35px 0px;
 
   div {
-    margin: 0 0 8px 90px;
+    margin: 0 0 8px 80px;
   }
 
   p {
@@ -43,13 +43,19 @@ const Footer = styled.footer`
     margin-bottom: 12px;
     font-size: smaller;
   }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
 `
 
 const HomeSection = styled.section`
   overflow: auto;
   padding-right: 12px;
+
   img {
-    height: 350px;
+    height: 300px;
     background-color: #e2e2e2;
     color: #fff;
     opacity: 0.1;
