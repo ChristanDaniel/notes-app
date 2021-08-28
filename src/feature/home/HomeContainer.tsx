@@ -16,11 +16,11 @@ import { RiEdit2Fill, RiDeleteBin7Fill, RiDeleteBinFill } from 'react-icons/ri'
 // import toast, { Toaster } from 'react-hot-toast'
 import Button from '../../components/Button'
 
-// type Note = {
-//   uid: string
-//   noteDate: string
-//   description: string
-// }
+type Note = {
+  id: number
+  noteDate: string
+  description: string
+}
 
 // interface NotesProps {
 //   // Notes: Note[]
@@ -40,18 +40,7 @@ const HomeContainer: ReactNode = () => {
   }
 
   const [inputQuestion, setinputQuestion] = useState('')
-  const [questions, setQuestions] = useState([
-    ...questionsFromStorage,
-    {
-      id: Math.random(),
-      description: inputQuestion,
-      noteDate: new Date().toLocaleDateString('pt-BR', {
-        day: '2-digit',
-        month: 'long',
-        year: 'numeric'
-      })
-    }
-  ])
+  const [questions, setQuestions] = useState<Note[]>([...questionsFromStorage])
   const [renderiza, setRenderiza] = useState(true)
 
   console.log(questions)
