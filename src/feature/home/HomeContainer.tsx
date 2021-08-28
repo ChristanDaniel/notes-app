@@ -1,6 +1,6 @@
 import React from 'react'
-import type { NextPage } from 'next'
-import { FormEvent, useEffect, useState } from 'react'
+// import type { NextPage } from 'next'
+import { FormEvent, useEffect, useState, ReactNode } from 'react'
 
 import Image from 'next/image'
 import profilePic from '../../../public/noteapp.png'
@@ -16,16 +16,22 @@ import { RiEdit2Fill, RiDeleteBin7Fill, RiDeleteBinFill } from 'react-icons/ri'
 // import toast, { Toaster } from 'react-hot-toast'
 import Button from '../../components/Button'
 
-// interface HomeProps {
-//   questions: {
-//     uid?: string
+// type Note = {
+//   uid: string
+//   noteDate: string
+//   description: string
+// }
+
+// interface NotesProps {
+//   // Notes: Note[]
+//   Note: {
+//     uid: string
 //     noteDate: string | null
 //     description: string
 //   }
 // }
 
-//  export function HomeContainer(): HomeProps {
-const HomeContainer: NextPage = () => {
+const HomeContainer: ReactNode = () => {
   let questionsFromStorage
 
   if (process.browser) {
@@ -34,12 +40,37 @@ const HomeContainer: NextPage = () => {
   }
 
   const [inputQuestion, setinputQuestion] = useState('')
-  const [questions, setQuestions] = useState(questionsFromStorage)
+  const [questions, setQuestions] = useState([
+    ...questionsFromStorage,
+    {
+      id: Math.random(),
+      description: inputQuestion,
+      noteDate: new Date().toLocaleDateString('pt-BR', {
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric'
+      })
+    }
+  ])
   const [renderiza, setRenderiza] = useState(true)
+
+  console.log(questions)
 
   const handleSendQuestion = (event: FormEvent) => {
     event.preventDefault()
-    setQuestions((prevState) => prevState.concat(inputQuestion))
+    setQuestions([
+      ...questions,
+      {
+        description: inputQuestion,
+        id: Math.random(),
+        noteDate: new Date().toLocaleDateString('pt-BR', {
+          day: '2-digit',
+          month: 'long',
+          year: 'numeric'
+        })
+      }
+    ])
+    // setQuestions((prevState) => prevState.concat(inputQuestion))
   }
 
   const handleCleanAll = () => {
@@ -79,9 +110,9 @@ const HomeContainer: NextPage = () => {
             onChange={(event) => setinputQuestion(event.target.value)}
             value={inputQuestion}
           />
-
           <Button type="submit">Enviar Nota</Button>
         </form>
+
         <Footer>
           <div>
             <a href="https://github.com/ChristanDaniel" target="_blank" rel="noreferrer noopener">
@@ -111,19 +142,19 @@ const HomeContainer: NextPage = () => {
         </SubtitleContainer>
         {questions.length ? (
           <ul>
-            {questions?.map((question, index) => {
+            {questions.map((question) => {
               return (
                 <>
-                  <li key={index}>
+                  <li key={question.id}>
                     <NoteContainer>
-                      <p>{question}</p>
+                      <p>{question.description}</p>
                     </NoteContainer>
                     <NoteContainerDiv>
-                      <span>17/02/2020 - 23:10</span>
+                      <span>{question.noteDate}</span>
                       <button>
                         <RiEdit2Fill /> Editar
                       </button>
-                      <button onClick={() => handleDeleteQuestion(index)}>
+                      <button onClick={() => handleDeleteQuestion(question.id)}>
                         {/* <Toaster position="bottom-right" reverseOrder={false} /> */}
                         <RiDeleteBin7Fill />
                         Excluir
