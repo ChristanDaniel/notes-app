@@ -22,15 +22,6 @@ type Note = {
   description: string
 }
 
-// interface NotesProps {
-//   // Notes: Note[]
-//   Note: {
-//     uid: string
-//     noteDate: string | null
-//     description: string
-//   }
-// }
-
 const HomeContainer: ReactNode = () => {
   let questionsFromStorage
 
@@ -131,7 +122,7 @@ const HomeContainer: ReactNode = () => {
         </SubtitleContainer>
         {questions.length ? (
           <ul>
-            {questions.map((question) => {
+            {questions.map((question, index) => {
               return (
                 <>
                   <li key={question.id}>
@@ -143,7 +134,7 @@ const HomeContainer: ReactNode = () => {
                       <button>
                         <RiEdit2Fill /> Editar
                       </button>
-                      <button onClick={() => handleDeleteQuestion(question.id)}>
+                      <button onClick={() => handleDeleteQuestion(index)}>
                         {/* <Toaster position="bottom-right" reverseOrder={false} /> */}
                         <RiDeleteBin7Fill />
                         Excluir
