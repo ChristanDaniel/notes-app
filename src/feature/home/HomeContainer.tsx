@@ -47,7 +47,7 @@ const HomeContainer: ReactNode = () => {
           day: '2-digit',
           month: '2-digit',
           year: 'numeric',
-          hour: 'numeric',
+          hour: '2-digit',
           minute: '2-digit'
         })
       }
@@ -71,6 +71,12 @@ const HomeContainer: ReactNode = () => {
     setRenderiza(!renderiza)
     // toast.success('Nota deletada com sucesso')
   }
+
+  // const handleeditQuestion = (index: number) => {
+  //   alert(questions.index)
+  //   setQuestions(questions)
+  //   setRenderiza(!renderiza)
+  // }
 
   useEffect(() => {
     localStorage.setItem('question', JSON.stringify(questions))
