@@ -2,11 +2,10 @@ import React from 'react'
 // import type { NextPage } from 'next'
 import { FormEvent, useEffect, useState, ReactNode } from 'react'
 
+import Modal from 'react-modal'
+
 import Image from 'next/image'
 import profilePic from '../../../public/noteapp.png'
-
-// import { format } from 'date-fns'
-// import ptBR from 'date-fns/locale/pt-BR'
 
 import { HomeAside, HomeContainerBg, HomeSection, NoteContainer, NoteContainerDiv, TextareaAutosizeWrapper, SubtitleContainer } from './styles'
 
@@ -33,6 +32,8 @@ const HomeContainer: ReactNode = () => {
   const [inputQuestion, setinputQuestion] = useState('')
   const [questions, setQuestions] = useState<Note[]>([...questionsFromStorage])
   const [renderiza, setRenderiza] = useState(true)
+
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   console.log(questions)
 
@@ -72,11 +73,13 @@ const HomeContainer: ReactNode = () => {
     // toast.success('Nota deletada com sucesso')
   }
 
-  // const handleeditQuestion = (index: number) => {
-  //   alert(questions.index)
-  //   setQuestions(questions)
-  //   setRenderiza(!renderiza)
-  // }
+  function handleOpenModal() {
+    setIsModalOpen(true)
+  }
+
+  function handleCloseModal() {
+    setIsModalOpen(false)
+  }
 
   useEffect(() => {
     localStorage.setItem('question', JSON.stringify(questions))
@@ -124,9 +127,17 @@ const HomeContainer: ReactNode = () => {
                     </NoteContainer>
                     <NoteContainerDiv>
                       <span>{question.noteDate}</span>
-                      <button>
+
+                      <button onClick={handleOpenModal}>
                         <RiEdit2Fill /> Editar
                       </button>
+                      <Modal
+                        isOpen={isModalOpen}
+                        onRequestClose={handleCloseModal}
+                        overlayClassName="react-modal-overlay"
+                        className="react-modal-content"
+                      ></Modal>
+
                       <button onClick={() => handleDeleteQuestion(index)}>
                         {/* <Toaster position="bottom-right" reverseOrder={false} /> */}
                         <RiDeleteBin7Fill />
