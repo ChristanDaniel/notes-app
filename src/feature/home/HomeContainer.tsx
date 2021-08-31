@@ -45,7 +45,7 @@ const HomeContainer: ReactNode = () => {
         id: Math.random(),
         noteDate: new Date().toLocaleDateString('pt-BR', {
           day: '2-digit',
-          month: '2-digit',
+          month: 'short',
           year: 'numeric',
           hour: '2-digit',
           minute: '2-digit'

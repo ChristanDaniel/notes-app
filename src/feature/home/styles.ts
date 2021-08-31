@@ -30,25 +30,6 @@ const HomeAside = styled.aside`
     margin-top: 14px;
   }
 `
-const Footer = styled.footer`
-  /* margin-top: 100px; */
-  margin: 100px 35px 0px;
-
-  div {
-    margin: 0 0 8px 80px;
-  }
-
-  p {
-    color: #616480;
-    margin-bottom: 12px;
-    font-size: smaller;
-  }
-
-  a {
-    color: inherit;
-    text-decoration: underline;
-  }
-`
 
 const HomeSection = styled.section`
   overflow: auto;
@@ -156,6 +137,7 @@ const NoteContainerDiv = styled.div`
   border-bottom: 1px solid #737380;
 
   span {
+    padding-top: 5px;
     padding-right: 185px;
   }
 
@@ -184,4 +166,4 @@ const NoteContainerDiv = styled.div`
   }
 `
 
-export { HomeContainerBg, HomeAside, Footer, HomeSection, TextareaAutosizeWrapper, NoteContainer, SubtitleContainer, NoteContainerDiv }
+export { HomeContainerBg, HomeAside, HomeSection, TextareaAutosizeWrapper, NoteContainer, SubtitleContainer, NoteContainerDiv }
