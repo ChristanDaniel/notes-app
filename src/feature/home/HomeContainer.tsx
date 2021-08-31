@@ -6,6 +6,7 @@ import Modal from 'react-modal'
 
 import Image from 'next/image'
 import profilePic from '../../../public/noteapp.png'
+import closeImg from '../../../public/close.svg'
 
 import { HomeAside, HomeContainerBg, HomeSection, NoteContainer, NoteContainerDiv, TextareaAutosizeWrapper, SubtitleContainer } from './styles'
 
@@ -30,6 +31,7 @@ const HomeContainer: ReactNode = () => {
   }
 
   const [inputQuestion, setinputQuestion] = useState('')
+  const [inputEdit, setInputEdit] = useState('')
   const [questions, setQuestions] = useState<Note[]>([...questionsFromStorage])
   const [renderiza, setRenderiza] = useState(true)
 
@@ -79,6 +81,22 @@ const HomeContainer: ReactNode = () => {
 
   function handleCloseModal() {
     setIsModalOpen(false)
+  }
+
+  function handleEditModal(event: FormEvent, id: number) {
+    event.preventDefault()
+    // const NotaEdited = questions.map((question) => ({ ...question, description: inputEdit }))
+    const NotaEdited = questions.map((question) => {
+      if (question.id === id) {
+        console.log(question.id)
+        return { ...question, description: inputEdit }
+      } else {
+        return { ...question }
+      }
+    })
+    setQuestions(NotaEdited)
+
+    handleCloseModal()
   }
 
   useEffect(() => {
@@ -131,12 +149,33 @@ const HomeContainer: ReactNode = () => {
                       <button onClick={handleOpenModal}>
                         <RiEdit2Fill /> Editar
                       </button>
-                      <Modal
-                        isOpen={isModalOpen}
-                        onRequestClose={handleCloseModal}
-                        overlayClassName="react-modal-overlay"
-                        className="react-modal-content"
-                      ></Modal>
+                      <div>
+                        <Modal isOpen={isModalOpen} onRequestClose={handleCloseModal} overlayClassName="react-modal-overlay" className="react-modal-content">
+                          <button type="button" onClick={handleCloseModal} className="react-modal-close">
+                            <Image src={closeImg} alt="Fechar Modal" />
+                          </button>
+                          <div>
+                            <h2>Editar Nota</h2>
+                            <span>
+                              Nota -{' '}
+                              {questions.findIndex((array) => {
+                                return array.id
+                              })}
+                            </span>
+                          </div>
+                          <form>
+                            <textarea
+                              aria-label="minimum height"
+                              placeholder="Escreva aqui..."
+                              onChange={(event) => setInputEdit(event.target.value)}
+                              value={inputEdit}
+                            />
+                            <Button type="submit" onClick={(event) => handleEditModal(event, question.id)}>
+                              Editar Nota
+                            </Button>
+                          </form>
+                        </Modal>
+                      </div>
 
                       <button onClick={() => handleDeleteQuestion(index)}>
                         {/* <Toaster position="bottom-right" reverseOrder={false} /> */}
