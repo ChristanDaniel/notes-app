@@ -33,12 +33,10 @@ const HomeContainer: ReactNode = () => {
   const [inputQuestion, setinputQuestion] = useState('')
   const [inputEdit, setInputEdit] = useState('')
   const [questions, setQuestions] = useState<Note[]>([...questionsFromStorage])
+  const [currentIdQuestion, setCurrentIdQuestion] = useState<Note>()
   const [renderiza, setRenderiza] = useState(true)
-  const [currentIdQuestion, setCurrentIdQuestions] = useState(0)
 
   const [isModalOpen, setIsModalOpen] = useState(false)
-
-  console.log(questions)
 
   const handleSendQuestion = (event: FormEvent) => {
     event.preventDefault()
@@ -77,10 +75,10 @@ const HomeContainer: ReactNode = () => {
     // toast.success('Nota deletada com sucesso')
   }
 
-  function handleOpenModal(id: number) {
-    setCurrentIdQuestions(id)
+  function handleOpenModal(question: Note) {
+    setCurrentIdQuestion(question)
     setIsModalOpen(true)
-    setInputEdit('')
+    setInputEdit(question.description)
   }
 
   function handleCloseModal() {
@@ -91,7 +89,7 @@ const HomeContainer: ReactNode = () => {
     event.preventDefault()
     // const NotaEdited = questions.map((question) => ({ ...question, description: inputEdit }))
     const NotaEdited = questions.map((question) => {
-      if (question.id === currentIdQuestion) {
+      if (question.id === currentIdQuestion?.id) {
         console.log(question.id)
         return { ...question, description: inputEdit }
       } else {
@@ -150,7 +148,7 @@ const HomeContainer: ReactNode = () => {
                     <NoteContainerDiv>
                       <span>{question.noteDate}</span>
 
-                      <button onClick={() => handleOpenModal(question.id)}>
+                      <button onClick={() => handleOpenModal(question)}>
                         <RiEdit2Fill /> Editar
                       </button>
                       <Modal isOpen={isModalOpen} onRequestClose={handleCloseModal} overlayClassName="react-modal-overlay" className="react-modal-content">
