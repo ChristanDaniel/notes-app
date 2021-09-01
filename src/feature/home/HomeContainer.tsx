@@ -34,6 +34,7 @@ const HomeContainer: ReactNode = () => {
   const [inputEdit, setInputEdit] = useState('')
   const [questions, setQuestions] = useState<Note[]>([...questionsFromStorage])
   const [renderiza, setRenderiza] = useState(true)
+  const [currentIdQuestion, setCurrentIdQuestions] = useState(0)
 
   const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -56,6 +57,7 @@ const HomeContainer: ReactNode = () => {
       }
     ])
     // setQuestions((prevState) => prevState.concat(inputQuestion))
+    setinputQuestion('')
   }
 
   const handleCleanAll = () => {
@@ -75,19 +77,21 @@ const HomeContainer: ReactNode = () => {
     // toast.success('Nota deletada com sucesso')
   }
 
-  function handleOpenModal() {
+  function handleOpenModal(id: number) {
+    setCurrentIdQuestions(id)
     setIsModalOpen(true)
+    setInputEdit('')
   }
 
   function handleCloseModal() {
     setIsModalOpen(false)
   }
 
-  function handleEditModal(event: FormEvent, id: number) {
+  function handleEditModal(event: FormEvent) {
     event.preventDefault()
     // const NotaEdited = questions.map((question) => ({ ...question, description: inputEdit }))
     const NotaEdited = questions.map((question) => {
-      if (question.id === id) {
+      if (question.id === currentIdQuestion) {
         console.log(question.id)
         return { ...question, description: inputEdit }
       } else {
@@ -146,36 +150,32 @@ const HomeContainer: ReactNode = () => {
                     <NoteContainerDiv>
                       <span>{question.noteDate}</span>
 
-                      <button onClick={handleOpenModal}>
+                      <button onClick={() => handleOpenModal(question.id)}>
                         <RiEdit2Fill /> Editar
                       </button>
-                      <div>
-                        <Modal isOpen={isModalOpen} onRequestClose={handleCloseModal} overlayClassName="react-modal-overlay" className="react-modal-content">
-                          <button type="button" onClick={handleCloseModal} className="react-modal-close">
-                            <Image src={closeImg} alt="Fechar Modal" />
-                          </button>
-                          <div>
-                            <h2>Editar Nota</h2>
-                            <span>
+                      <Modal isOpen={isModalOpen} onRequestClose={handleCloseModal} overlayClassName="react-modal-overlay" className="react-modal-content">
+                        <button type="button" onClick={handleCloseModal} className="react-modal-close">
+                          <Image src={closeImg} alt="Fechar Modal" />
+                        </button>
+                        <div>
+                          <h2>Editar Nota</h2>
+                          {/* <span>
                               Nota -{' '}
-                              {questions.findIndex((array) => {
-                                return array.id
+                              {questions.findIndex(() => {
+                                return
                               })}
-                            </span>
-                          </div>
-                          <form>
-                            <textarea
-                              aria-label="minimum height"
-                              placeholder="Escreva aqui..."
-                              onChange={(event) => setInputEdit(event.target.value)}
-                              value={inputEdit}
-                            />
-                            <Button type="submit" onClick={(event) => handleEditModal(event, question.id)}>
-                              Editar Nota
-                            </Button>
-                          </form>
-                        </Modal>
-                      </div>
+                            </span> */}
+                        </div>
+                        <form>
+                          <textarea
+                            aria-label="minimum height"
+                            placeholder="Escreva aqui..."
+                            onChange={(event) => setInputEdit(event.target.value)}
+                            value={inputEdit}
+                          />
+                          <Button onClick={(event) => handleEditModal(event)}>Editar Nota</Button>
+                        </form>
+                      </Modal>
 
                       <button onClick={() => handleDeleteQuestion(index)}>
                         {/* <Toaster position="bottom-right" reverseOrder={false} /> */}
