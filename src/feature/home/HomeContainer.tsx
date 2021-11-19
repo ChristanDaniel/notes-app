@@ -40,22 +40,24 @@ const HomeContainer: ReactNode = () => {
 
   const handleSendQuestion = (event: FormEvent) => {
     event.preventDefault()
-    setQuestions([
-      ...questions,
-      {
-        description: inputQuestion,
-        id: Math.random(),
-        noteDate: new Date().toLocaleDateString('pt-BR', {
-          day: '2-digit',
-          month: 'short',
-          year: 'numeric',
-          hour: '2-digit',
-          minute: '2-digit'
-        })
-      }
-    ])
-    // setQuestions((prevState) => prevState.concat(inputQuestion))
-    setinputQuestion('')
+    if (inputQuestion !== '') {
+      setQuestions([
+        ...questions,
+        {
+          description: inputQuestion,
+          id: Math.random(),
+          noteDate: new Date().toLocaleDateString('pt-BR', {
+            day: '2-digit',
+            month: 'short',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+          })
+        }
+      ])
+      // setQuestions((prevState) => prevState.concat(inputQuestion))
+      setinputQuestion('')
+    }
   }
 
   const handleCleanAll = () => {
