@@ -1,5 +1,4 @@
 import React from 'react'
-// import type { NextPage } from 'next'
 import { FormEvent, useEffect, useState } from 'react'
 
 import Modal from 'react-modal'
@@ -55,7 +54,6 @@ const HomeContainer = (): JSX.Element => {
           })
         }
       ])
-      // setQuestions((prevState) => prevState.concat(inputQuestion))
       setinputQuestion('')
     }
   }
@@ -89,7 +87,7 @@ const HomeContainer = (): JSX.Element => {
 
   function handleEditModal(event: FormEvent) {
     event.preventDefault()
-    // const NotaEdited = questions.map((question) => ({ ...question, description: inputEdit }))
+
     const NotaEdited = questions.map((question) => {
       if (question.id === currentIdQuestion?.id) {
         console.log(question.id)
@@ -112,8 +110,9 @@ const HomeContainer = (): JSX.Element => {
       <HomeAside>
         <h3>Notes-App</h3>
         <h4>
-          Bloco de Notas Pessoal que usa o armazenamento do seu navegador <br /> para salvar suas notas e você pode simplesmente
-          <br /> excluí-las quando terminar.
+          Bloco de Notas Pessoal que usa o armazenamento do seu navegador <br />
+          para salvar suas notas e você pode simplesmente <br />
+          excluí-las quando terminar.
         </h4>
 
         <form onSubmit={handleSendQuestion}>
@@ -159,12 +158,7 @@ const HomeContainer = (): JSX.Element => {
                         </button>
                         <div>
                           <h2>Editar Nota</h2>
-                          {/* <span>
-                              Nota -{' '}
-                              {questions.findIndex(() => {
-                                return
-                              })}
-                            </span> */}
+                          {/* <span>Nota - {questions.indexOf()}</span> */}
                         </div>
                         <form>
                           <textarea

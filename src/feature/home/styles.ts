@@ -66,7 +66,6 @@ const SubtitleContainer = styled.div`
     background: #3498db;
     color: #fff;
     display: flex;
-    justify-content: center;
     align-items: center;
     padding: 0 5px;
 
@@ -77,6 +76,10 @@ const SubtitleContainer = styled.div`
 
     :hover {
       filter: brightness(0.9);
+    }
+
+    svg {
+      margin-right: 3px;
     }
   }
 `
@@ -106,18 +109,7 @@ const NoteContainer = styled.div`
   p {
     font-size: 14px;
     overflow-wrap: break-word;
-    /* margin-bottom: 10px; */
   }
-  /* div {
-    background: #fefefe;
-    display: flex;
-    padding-left: 50px;
-  } */
-
-  /* span {
-    color: #737380;
-    font-size: 10px;
-  } */
 `
 const NoteContainerDiv = styled.div`
   background-color: #e2e2e2;
@@ -144,7 +136,6 @@ const NoteContainerDiv = styled.div`
     font-size: 11px;
     height: 30px;
     border-radius: 8px;
-    /* font-weight: 500; */
     background: #e2e2e2;
     color: #737380;
     display: flex;
