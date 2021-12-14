@@ -1,6 +1,6 @@
 import React from 'react'
 // import type { NextPage } from 'next'
-import { FormEvent, useEffect, useState, ReactNode } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 
 import Modal from 'react-modal'
 
@@ -22,7 +22,7 @@ type Note = {
   description: string
 }
 
-const HomeContainer: ReactNode = () => {
+const HomeContainer = (): JSX.Element => {
   let questionsFromStorage
 
   if (process.browser) {

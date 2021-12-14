@@ -28,7 +28,7 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
   }
 
-  body, imput, textarea, button {
+  body, input, textarea, button {
       font-family: 'Roboto', sans-serif;
       font-weight: 400;
   }

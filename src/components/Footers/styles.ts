@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 const Footer = styled.footer`
-  /* margin-top: 100px; */
   margin: 100px 35px 0px;
 
   div {

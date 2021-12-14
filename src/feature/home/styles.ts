@@ -1,10 +1,7 @@
-// import { TextareaAutosize } from '@material-ui/core'
 import styled from 'styled-components'
-// import Button from '../../components/Button'
 
 const HomeContainerBg = styled.div`
   height: calc(100vh - 80px);
-  /* height: 100vh; */
   background-color: #e2e2e2;
   display: flex;
   padding-top: 24px;
