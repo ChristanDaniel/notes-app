@@ -90,7 +90,6 @@ const HomeContainer = (): JSX.Element => {
 
     const NotaEdited = questions.map((question) => {
       if (question.id === currentIdQuestion?.id) {
-        console.log(question.id)
         return { ...question, description: inputEdit }
       } else {
         return { ...question }
@@ -137,6 +136,19 @@ const HomeContainer = (): JSX.Element => {
             <RiDeleteBinFill /> Limpar todos
           </button>
         </SubtitleContainer>
+        <Modal isOpen={isModalOpen} onRequestClose={handleCloseModal} overlayClassName="react-modal-overlay" className="react-modal-content">
+          <button type="button" onClick={handleCloseModal} className="react-modal-close">
+            <Image src={closeImg} alt="Fechar Modal" />
+          </button>
+          <div>
+            <h2>Editar Nota</h2>
+            {/* <span>Nota - {questions.indexOf()}</span> */}
+          </div>
+          <form>
+            <textarea aria-label="minimum height" placeholder="Escreva aqui..." onChange={(event) => setInputEdit(event.target.value)} value={inputEdit} />
+            <Button onClick={(event) => handleEditModal(event)}>Editar Nota</Button>
+          </form>
+        </Modal>
         {questions.length ? (
           <ul>
             {questions.map((question, index) => {
@@ -152,24 +164,6 @@ const HomeContainer = (): JSX.Element => {
                       <button onClick={() => handleOpenModal(question)}>
                         <RiEdit2Fill /> Editar
                       </button>
-                      <Modal isOpen={isModalOpen} onRequestClose={handleCloseModal} overlayClassName="react-modal-overlay" className="react-modal-content">
-                        <button type="button" onClick={handleCloseModal} className="react-modal-close">
-                          <Image src={closeImg} alt="Fechar Modal" />
-                        </button>
-                        <div>
-                          <h2>Editar Nota</h2>
-                          {/* <span>Nota - {questions.indexOf()}</span> */}
-                        </div>
-                        <form>
-                          <textarea
-                            aria-label="minimum height"
-                            placeholder="Escreva aqui..."
-                            onChange={(event) => setInputEdit(event.target.value)}
-                            value={inputEdit}
-                          />
-                          <Button onClick={(event) => handleEditModal(event)}>Editar Nota</Button>
-                        </form>
-                      </Modal>
 
                       <button onClick={() => handleDeleteQuestion(index)}>
                         {/* <Toaster position="bottom-right" reverseOrder={false} /> */}
