@@ -55,7 +55,6 @@ export const GlobalStyle = createGlobalStyle`
      position: absolute;
      right: -40px;
      top: -5px;
-     /* padding-bottom: 20px; */
      border: 0;
      background: transparent;
 

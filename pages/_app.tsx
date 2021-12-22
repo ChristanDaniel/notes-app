@@ -5,7 +5,7 @@ import { GlobalStyle } from '../styles/Global'
 
 import { NotesContainerProvider } from '../src/NotesContext'
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <>
       <GlobalStyle />

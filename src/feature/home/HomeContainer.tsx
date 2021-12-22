@@ -13,7 +13,6 @@ import { RiEdit2Fill, RiDeleteBin7Fill, RiDeleteBinFill } from 'react-icons/ri'
 
 import { NotesContainerContext } from '../../NotesContext'
 
-// import toast, { Toaster } from 'react-hot-toast'
 import Button from '../../components/Button'
 import { Footers } from '../../components/Footers'
 
@@ -69,7 +68,6 @@ const HomeContainer = (): JSX.Element => {
     questions.splice(0, 1000)
     setQuestions(questions)
     setRenderiza(!renderiza)
-    // toast.success('Notas deletadas com sucesso')
   }
 
   const handleDeleteQuestion = (index: number) => {
@@ -78,7 +76,6 @@ const HomeContainer = (): JSX.Element => {
     }
     setQuestions(questions)
     setRenderiza(!renderiza)
-    // toast.success('Nota deletada com sucesso')
   }
 
   function handleOpenModal(question: Note) {
@@ -172,7 +169,6 @@ const HomeContainer = (): JSX.Element => {
                       </button>
 
                       <button onClick={() => handleDeleteQuestion(index)}>
-                        {/* <Toaster position="bottom-right" reverseOrder={false} /> */}
                         <RiDeleteBin7Fill />
                         Excluir
                       </button>
