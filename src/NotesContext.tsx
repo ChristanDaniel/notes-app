@@ -1,20 +1,31 @@
-import { createContext } from 'react'
+import React, { createContext, ReactNode, useState } from 'react'
 
-interface Props {}
-
-interface INotesContainerProps {}
-
-// let questionsFromStorage
-
-// if (process.browser) {
-//   const hasStorage = localStorage.getItem('question')
-//   questionsFromStorage = hasStorage ? JSON.parse(hasStorage) : []
-// }
-
-const NotesContainerContext = createContext({} as INotesContainerProps)
-
-const NotesContainerProvider: React.FC = ({ children }) => {
-  return <NotesContainerContext.Provider value={}>{children}</NotesContainerContext.Provider>
+interface Note {
+  id: number
+  noteDate: string
+  description: string
 }
 
-export { NotesContainerProvider, NotesContainerContext }
+interface INotesContainerProps {
+  notes: Note[]
+  setNotes: React.Dispatch<React.SetStateAction<Note[]>>
+}
+
+interface NotesProviderProps {
+  children: ReactNode
+}
+
+let notesFromStorage: Note[]
+
+if (process.browser) {
+  const hasStorage = localStorage.getItem('question')
+  notesFromStorage = hasStorage ? JSON.parse(hasStorage) : []
+}
+
+export const NotesContainerContext = createContext({} as INotesContainerProps)
+
+export function NotesContainerProvider({ children }: NotesProviderProps): JSX.Element {
+  const [notes, setNotes] = useState<Note[]>(notesFromStorage)
+
+  return <NotesContainerContext.Provider value={{ notes, setNotes }}>{children}</NotesContainerContext.Provider>
+}

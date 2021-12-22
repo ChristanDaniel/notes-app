@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { FormEvent, useEffect, useState } from 'react'
 
 import Modal from 'react-modal'
@@ -10,6 +10,8 @@ import closeImg from '../../../public/close.svg'
 import { HomeAside, HomeContainerBg, HomeSection, NoteContainer, NoteContainerDiv, TextareaAutosizeWrapper, SubtitleContainer } from './styles'
 
 import { RiEdit2Fill, RiDeleteBin7Fill, RiDeleteBinFill } from 'react-icons/ri'
+
+import { NotesContainerContext } from '../../NotesContext'
 
 // import toast, { Toaster } from 'react-hot-toast'
 import Button from '../../components/Button'
@@ -34,6 +36,10 @@ const HomeContainer = (): JSX.Element => {
   const [questions, setQuestions] = useState<Note[]>([...questionsFromStorage])
   const [currentIdQuestion, setCurrentIdQuestion] = useState<Note>()
   const [renderiza, setRenderiza] = useState(true)
+
+  const { notes } = useContext(NotesContainerContext)
+
+  console.log('notes', notes)
 
   const [isModalOpen, setIsModalOpen] = useState(false)
 

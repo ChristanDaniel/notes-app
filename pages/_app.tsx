@@ -8,9 +8,9 @@ import { NotesContainerProvider } from '../src/NotesContext'
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
+      <GlobalStyle />
       <NotesContainerProvider>
         <Component {...pageProps} />
-        <GlobalStyle />
       </NotesContainerProvider>
     </>
   )
