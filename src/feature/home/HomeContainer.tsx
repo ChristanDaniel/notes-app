@@ -11,7 +11,7 @@ import { HomeAside, HomeContainerBg, HomeSection, NoteContainer, NoteContainerDi
 
 import { RiEdit2Fill, RiDeleteBin7Fill, RiDeleteBinFill } from 'react-icons/ri'
 
-import { NotesContainerContext } from '../../NotesContext'
+import { QuestionsContainerContext } from '../../NotesContext'
 
 import Button from '../../components/Button'
 import { Footers } from '../../components/Footers'
@@ -36,9 +36,9 @@ const HomeContainer = (): JSX.Element => {
   const [currentIdQuestion, setCurrentIdQuestion] = useState<Note>()
   const [renderiza, setRenderiza] = useState(true)
 
-  const { notes } = useContext(NotesContainerContext)
+  // const {} = useContext(QuestionsContainerContext)
 
-  console.log('notes', notes)
+  // console.log('notes', notes)
 
   const [isModalOpen, setIsModalOpen] = useState(false)
 
