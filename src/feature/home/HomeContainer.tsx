@@ -1,20 +1,16 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { FormEvent, useEffect, useState } from 'react'
-
-import Modal from 'react-modal'
 
 import Image from 'next/image'
 import profilePic from '../../../public/noteapp.png'
-import closeImg from '../../../public/close.svg'
 
 import { HomeAside, HomeContainerBg, HomeSection, NoteContainer, NoteContainerDiv, TextareaAutosizeWrapper, SubtitleContainer } from './styles'
 
 import { RiEdit2Fill, RiDeleteBin7Fill, RiDeleteBinFill } from 'react-icons/ri'
 
-import { QuestionsContainerContext } from '../../NotesContext'
-
 import Button from '../../components/Button'
 import { Footers } from '../../components/Footers'
+import { OpenModalQuestion } from '../../components/OpenModalQuestion'
 
 type Note = {
   id: number
@@ -31,14 +27,8 @@ const HomeContainer = (): JSX.Element => {
   }
 
   const [inputQuestion, setinputQuestion] = useState('')
-  const [inputEdit, setInputEdit] = useState('')
   const [questions, setQuestions] = useState<Note[]>([...questionsFromStorage])
-  const [currentIdQuestion, setCurrentIdQuestion] = useState<Note>()
   const [renderiza, setRenderiza] = useState(true)
-
-  // const {} = useContext(QuestionsContainerContext)
-
-  // console.log('notes', notes)
 
   const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -78,29 +68,8 @@ const HomeContainer = (): JSX.Element => {
     setRenderiza(!renderiza)
   }
 
-  function handleOpenModal(question: Note) {
-    setCurrentIdQuestion(question)
-    setIsModalOpen(true)
-    setInputEdit(question.description)
-  }
-
   function handleCloseModal() {
     setIsModalOpen(false)
-  }
-
-  function handleEditModal(event: FormEvent) {
-    event.preventDefault()
-
-    const NotaEdited = questions.map((question) => {
-      if (question.id === currentIdQuestion?.id) {
-        return { ...question, description: inputEdit }
-      } else {
-        return { ...question }
-      }
-    })
-    setQuestions(NotaEdited)
-
-    handleCloseModal()
   }
 
   useEffect(() => {
@@ -139,19 +108,9 @@ const HomeContainer = (): JSX.Element => {
             <RiDeleteBinFill /> Limpar todos
           </button>
         </SubtitleContainer>
-        <Modal isOpen={isModalOpen} onRequestClose={handleCloseModal} overlayClassName="react-modal-overlay" className="react-modal-content">
-          <button type="button" onClick={handleCloseModal} className="react-modal-close">
-            <Image src={closeImg} alt="Fechar Modal" />
-          </button>
-          <div>
-            <h2>Editar Nota</h2>
-            {/* <span>Nota - {questions.indexOf()}</span> */}
-          </div>
-          <form>
-            <textarea aria-label="minimum height" placeholder="Escreva aqui..." onChange={(event) => setInputEdit(event.target.value)} value={inputEdit} />
-            <Button onClick={(event) => handleEditModal(event)}>Editar Nota</Button>
-          </form>
-        </Modal>
+
+        <OpenModalQuestion isOpen={isModalOpen} onRequestClose={handleCloseModal} />
+
         {questions.length ? (
           <ul>
             {questions.map((question, index) => {
