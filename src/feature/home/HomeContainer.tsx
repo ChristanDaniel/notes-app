@@ -1,5 +1,5 @@
-import React from 'react'
-import { FormEvent, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
+import { FormEvent, useEffect } from 'react'
 
 import Image from 'next/image'
 import profilePic from '../../../public/noteapp.png'
@@ -12,26 +12,11 @@ import Button from '../../components/Button'
 import { Footers } from '../../components/Footers'
 import { OpenModalQuestion } from '../../components/OpenModalQuestion'
 import QuestionCart from '../../components/QuestionCart'
-
-type Note = {
-  id: number
-  noteDate: string
-  description: string
-}
+import { QuestionsContainerContext } from '../../NotesContext'
 
 const HomeContainer = (): JSX.Element => {
-  let questionsFromStorage
-
-  if (process.browser) {
-    const hasStorage = localStorage.getItem('question')
-    questionsFromStorage = hasStorage ? JSON.parse(hasStorage) : []
-  }
-
-  const [inputQuestion, setinputQuestion] = useState('')
-  const [questions, setQuestions] = useState<Note[]>([...questionsFromStorage])
-  const [renderiza, setRenderiza] = useState(true)
-
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const { questions, setQuestions, inputQuestion, setinputQuestion, renderiza, setRenderiza, isModalOpen, setIsModalOpen } =
+    useContext(QuestionsContainerContext)
 
   const handleSendQuestion = (event: FormEvent) => {
     event.preventDefault()

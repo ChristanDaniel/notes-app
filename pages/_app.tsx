@@ -3,15 +3,15 @@ import type { AppProps } from 'next/app'
 
 import { GlobalStyle } from '../styles/Global'
 
-import { NotesContainerProvider } from '../src/NotesContext'
+import { QuestionsContainerProvider } from '../src/NotesContext'
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <>
       <GlobalStyle />
-      <NotesContainerProvider>
+      <QuestionsContainerProvider>
         <Component {...pageProps} />
-      </NotesContainerProvider>
+      </QuestionsContainerProvider>
     </>
   )
 }
