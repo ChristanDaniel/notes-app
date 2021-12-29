@@ -4,13 +4,14 @@ import { FormEvent, useEffect, useState } from 'react'
 import Image from 'next/image'
 import profilePic from '../../../public/noteapp.png'
 
-import { HomeAside, HomeContainerBg, HomeSection, NoteContainer, NoteContainerDiv, TextareaAutosizeWrapper, SubtitleContainer } from './styles'
+import { HomeAside, HomeContainerBg, HomeSection, TextareaAutosizeWrapper, SubtitleContainer } from './styles'
 
-import { RiEdit2Fill, RiDeleteBin7Fill, RiDeleteBinFill } from 'react-icons/ri'
+import { RiDeleteBinFill } from 'react-icons/ri'
 
 import Button from '../../components/Button'
 import { Footers } from '../../components/Footers'
 import { OpenModalQuestion } from '../../components/OpenModalQuestion'
+import QuestionCart from '../../components/QuestionCart'
 
 type Note = {
   id: number
@@ -60,14 +61,6 @@ const HomeContainer = (): JSX.Element => {
     setRenderiza(!renderiza)
   }
 
-  const handleDeleteQuestion = (index: number) => {
-    if (index > -1) {
-      questions.splice(index, 1)
-    }
-    setQuestions(questions)
-    setRenderiza(!renderiza)
-  }
-
   function handleCloseModal() {
     setIsModalOpen(false)
   }
@@ -111,35 +104,7 @@ const HomeContainer = (): JSX.Element => {
 
         <OpenModalQuestion isOpen={isModalOpen} onRequestClose={handleCloseModal} />
 
-        {questions.length ? (
-          <ul>
-            {questions.map((question, index) => {
-              return (
-                <>
-                  <li key={question.id}>
-                    <NoteContainer>
-                      <p>{question.description}</p>
-                    </NoteContainer>
-                    <NoteContainerDiv>
-                      <span>{question.noteDate}</span>
-
-                      <button onClick={() => handleOpenModal(question)}>
-                        <RiEdit2Fill /> Editar
-                      </button>
-
-                      <button onClick={() => handleDeleteQuestion(index)}>
-                        <RiDeleteBin7Fill />
-                        Excluir
-                      </button>
-                    </NoteContainerDiv>
-                  </li>
-                </>
-              )
-            })}
-          </ul>
-        ) : (
-          <Image src={profilePic} alt="logo" />
-        )}
+        {questions.length ? <QuestionCart /> : <Image src={profilePic} alt="logo" />}
       </HomeSection>
     </HomeContainerBg>
   )
