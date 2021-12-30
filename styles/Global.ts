@@ -74,6 +74,10 @@ export const GlobalStyle = createGlobalStyle`
     position: relative;
     border-radius: 0.24rem;
 
+    svg {
+      margin-right: 4px;
+    }
+
     textarea {
       width: 100%;
       min-height: 180px;

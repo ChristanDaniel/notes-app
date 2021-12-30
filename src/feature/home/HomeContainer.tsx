@@ -71,7 +71,7 @@ const HomeContainer = (): JSX.Element => {
             onChange={(event) => setinputQuestion(event.target.value)}
             value={inputQuestion}
           />
-          <Button type="submit">Enviar Nota</Button>
+          <Button type="submit">Adicionar Nota</Button>
         </form>
 
         <Footers />

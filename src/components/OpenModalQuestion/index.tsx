@@ -2,6 +2,7 @@ import React, { FormEvent, useContext } from 'react'
 import Modal from 'react-modal'
 import { QuestionsContainerContext } from '../../NotesContext'
 import Button from '../Button'
+import { AiOutlineEdit } from 'react-icons/ai'
 // import {} from './styles'
 
 import Image from 'next/image'
@@ -37,11 +38,14 @@ export function OpenModalQuestion({ isOpen, onRequestClose }: OpenModalQuestionP
         </button>
         <div>
           <h2>Editar Nota</h2>
-          {/* <span>Nota - {questions.indexOf()}</span> */}
+          {/* <span>Nota - {questions.indexOf}</span> */}
         </div>
         <form>
           <textarea aria-label="minimum height" placeholder="Escreva aqui..." onChange={(event) => setInputEdit(event.target.value)} value={inputEdit} />
-          <Button onClick={(event) => handleEditModal(event)}>Editar Nota</Button>
+          <Button onClick={(event) => handleEditModal(event)}>
+            {' '}
+            <AiOutlineEdit /> Editar Nota
+          </Button>
         </form>
       </Modal>
     </>
