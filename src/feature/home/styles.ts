@@ -43,7 +43,7 @@ const HomeSection = styled.section`
 const SubtitleContainer = styled.div`
   align-items: center;
   min-width: 450px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
 

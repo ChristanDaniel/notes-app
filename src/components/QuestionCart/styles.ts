@@ -22,7 +22,7 @@ const NoteContainerDiv = styled.div`
   display: flex;
   position: sticky;
   width: 450px;
-  margin-bottom: 20px;
+  margin-bottom: 18.5px;
   align-items: center;
   padding-right: 15px;
   padding-left: 15px;
