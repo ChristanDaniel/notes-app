@@ -6,6 +6,7 @@ import { Headers } from './styles'
 
 import Image from 'next/image'
 import profilePic from '../../../public/headerLogo.svg'
+import { AiOutlineCalendar } from 'react-icons/ai'
 
 const Header = (): JSX.Element => {
   const currentDate = format(new Date(), 'EEEEEE, d MMMM', {
@@ -19,7 +20,9 @@ const Header = (): JSX.Element => {
         <h1>
           Ig<span>.</span>Notes
         </h1>
-        <h3>{currentDate}</h3>
+        <h3>
+          <AiOutlineCalendar /> {currentDate}
+        </h3>
       </Headers>
     </>
   )

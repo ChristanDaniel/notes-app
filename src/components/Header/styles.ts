@@ -24,6 +24,14 @@ const Headers = styled.header`
   h3 {
     margin-left: auto;
     text-transform: capitalize;
+    display: flex;
+    align-items: center;
+
+    svg {
+      margin-right: 4px;
+      height: 20px;
+      width: 20px;
+    }
   }
 `
 export { Headers }
