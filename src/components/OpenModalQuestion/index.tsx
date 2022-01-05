@@ -13,10 +13,18 @@ interface OpenModalQuestionProps {
   onRequestClose: () => void
 }
 
+// Component OpenModalQuestion foi criado utilizando uma biblioteca chamada React-Modal,
+// nela precisamos passar para tag <Modal /> "importada da biblioteca React-Modal" duas propriedades
+// "isOpen, onRequestClose" terá um estado "useState"
+// passando a informação se o Modal está aberto ou fechado.
+
 export function OpenModalQuestion({ isOpen, onRequestClose }: OpenModalQuestionProps): JSX.Element {
   const { questions, setQuestions, inputEdit, setInputEdit, currentIdQuestion } = useContext(QuestionsContainerContext)
 
   function handleEditModal(event: FormEvent) {
+    // Função criada para editar Nota selecionada e
+    // após passar pela verificação utilizamos onRequestClose para fechar o Modal.
+
     event.preventDefault()
 
     const NotaEdited = questions.map((question) => {
@@ -30,6 +38,7 @@ export function OpenModalQuestion({ isOpen, onRequestClose }: OpenModalQuestionP
 
     onRequestClose()
   }
+
   return (
     <>
       <Modal isOpen={isOpen} onRequestClose={onRequestClose} overlayClassName="react-modal-overlay" className="react-modal-content">
