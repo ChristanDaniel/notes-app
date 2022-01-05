@@ -12,6 +12,7 @@ const Header = (): JSX.Element => {
   const currentDate = format(new Date(), 'EEEEEE, d MMMM', {
     locale: ptBR
   })
+  // CurrentDate foi criado acessar a data atual da pessoa que está acessando o site.
 
   return (
     <>
@@ -22,6 +23,7 @@ const Header = (): JSX.Element => {
         </h1>
         <h3>
           <AiOutlineCalendar /> {currentDate}
+          {/* Mostrando em tela a data atual da pessoas acessando o site. */}
         </h3>
       </Headers>
     </>
