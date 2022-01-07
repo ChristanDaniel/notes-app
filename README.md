@@ -3,9 +3,9 @@
 </h1>
 
 ## 💻 Projeto
-Ig.Notes é perfeito para quem precisa guarda anotações na sua máquina para utilizá-las no futuro, de forma organizada e prárica.
+Ig.Notes é perfeito para quem precisa guarda anotações na sua máquina para utilizá-las no futuro, de forma organizada e prática.
 
-Esse Projeto Ig.Note é uma inpiração do repostório [app-ideas](https://github.com/florinpop17/app-ideas) foi criado para treinar a utilizações das ferramentas/tecnologias abaixo:
+Esse Projeto Ig.Note é uma inspiração do repositório [app-ideas](https://github.com/florinpop17/app-ideas), utilizado para treinar as ferramentas/tecnologias descritas abaixo:
 
 ## 🚀 Tecnologias
 
@@ -24,9 +24,9 @@ Esse Projeto Ig.Note é uma inpiração do repostório [app-ideas](https://githu
 ### 🔗 Funcionalidades
 
 - [x] **Salvar no LocalStorage**: Método criado para salvar um objeto no LocalStorage.
-- [x] **Ediar Nota**: Método criado para editar somente a Nota selecionada.
-- [x] **Excluir Nota**: Método criado para exluir somente a nota selecionada.
-- [x] **Excluir Todas Nota**: Método criado para exluir todas Notas.
+- [x] **Editar Nota**: Método criado para editar somente a Nota selecionada.
+- [x] **Excluir Nota**: Método criado para excluir somente a nota selecionada.
+- [x] **Excluir Todas Nota**: Método criado para excluir todas Notas.
 - [x] **Abrir Modal**: Biblioteca [React-Modal](https://github.com/reactjs/react-modal) usada para criar modal.
 
 
