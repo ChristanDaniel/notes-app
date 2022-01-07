@@ -21,4 +21,32 @@ Esse Projeto Ig.Note é uma inpiração do repostório [app-ideas](https://githu
 ![chrome_NUHJ7eRqJv](https://user-images.githubusercontent.com/80167149/148600274-50d6709e-1f95-42a6-bbbb-c2918a570e21.png) ![chrome_P0DTDYLBRq](https://user-images.githubusercontent.com/80167149/148606968-7dc64a93-2b4b-4204-b559-b149eae5ccb4.png)
 ---
 
+### 🔗 Funcionalidades
 
+- [x] **Salvar no LocalStorage**: Método criado para salvar um objeto no LocalStorage.
+- [x] **Ediar Nota**: Método criado para editar somente a Nota selecionada.
+- [x] **Excluir Nota**: Método criado para exluir somente a nota selecionada.
+- [x] **Excluir Todas Nota**: Método criado para exluir todas Notas.
+- [x] **Abrir Modal**: Biblioteca [React-Modal](https://github.com/reactjs/react-modal) usada para criar modal.
+
+
+## 📥 Instalação e execução
+
+Faça um clone desse repositório e acesse o diretório.
+
+```bash
+$ git clone https://github.com/ChristanDaniel/notes-app.git
+```
+```bash
+# Instalando as dependências
+$ yarn
+
+# Executanto aplicação
+$ yarn dev
+
+```
+Tudo Pronto? Agora é só acessar [`localhost:3000`](http://localhost:3000) do seu navegador.
+
+
+---
+Feito com 🧡 by Christian Daniel 👋🏻
