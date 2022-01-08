@@ -19,6 +19,9 @@ const HomeContainer = (): JSX.Element => {
     useContext(QuestionsContainerContext)
 
   const handleSendQuestion = (event: FormEvent) => {
+    // Função responsável para verifica se existe pelo menos 1 letra no textarea se sim,
+    // mantém tudo que ja tem no estado questions e salva um objeto contento
+    // id, descrição e a data do salvamento dentro dele.
     event.preventDefault()
     if (inputQuestion !== '') {
       setQuestions([
@@ -40,6 +43,7 @@ const HomeContainer = (): JSX.Element => {
   }
 
   const handleCleanAll = () => {
+    // Função responsável para excluir todas as Notas.
     localStorage.removeItem('question')
     questions.splice(0, 1000)
     setQuestions(questions)
@@ -47,10 +51,13 @@ const HomeContainer = (): JSX.Element => {
   }
 
   function handleCloseModal() {
+    // Função responsável por fechar o modal.
     setIsModalOpen(false)
   }
 
   useEffect(() => {
+    // Hook responsável para verificar se existe um objeto com a key 'question' se sim,
+    // salva os dados que exitentes no estado questions.
     localStorage.setItem('question', JSON.stringify(questions))
   }, [renderiza, questions])
 
