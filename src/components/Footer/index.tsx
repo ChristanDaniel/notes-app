@@ -1,18 +1,18 @@
 import React from 'react'
-import { Footer } from './styles'
+import { FooterContainer } from './styles'
 
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 
-export function Footers(): JSX.Element {
+export function Footer(): JSX.Element {
   return (
     <>
-      <Footer>
+      <FooterContainer>
         <div>
           <a href="https://github.com/ChristanDaniel" target="_blank" rel="noreferrer noopener">
             <FaGithub /> Github
           </a>
           <span> | </span>
-          <a href="https://www.linkedin.com/in/christian-daniel-841921210/" target="_blank" rel="noreferrer noopener">
+          <a href="https://www.linkedin.com/in/christian-daniel-dev" target="_blank" rel="noreferrer noopener">
             <FaLinkedin /> Linkedin
           </a>
         </div>
@@ -21,7 +21,7 @@ export function Footers(): JSX.Element {
           {' · '}
           <span>Construido por Christian Daniel .</span>
         </p>
-      </Footer>
+      </FooterContainer>
     </>
   )
 }

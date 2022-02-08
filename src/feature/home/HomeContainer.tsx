@@ -9,7 +9,7 @@ import { HomeAside, HomeContainerBg, HomeSection, TextareaAutosizeWrapper, Subti
 import { RiDeleteBinFill } from 'react-icons/ri'
 
 import Button from '../../components/Button'
-import { Footers } from '../../components/Footers'
+import { Footer } from '../../components/Footer'
 import { OpenModalQuestion } from '../../components/OpenModalQuestion'
 import QuestionCart from '../../components/QuestionCart'
 import { QuestionsContainerContext } from '../../NotesContext'
@@ -81,7 +81,7 @@ const HomeContainer = (): JSX.Element => {
           <Button type="submit">Adicionar Nota</Button>
         </form>
 
-        <Footers />
+        <Footer />
       </HomeAside>
 
       <HomeSection>
