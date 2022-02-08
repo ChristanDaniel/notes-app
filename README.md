@@ -23,11 +23,12 @@ Esse Projeto Ig.Note é uma inspiração do repositório [app-ideas](https://git
 
 ### 🔗 Funcionalidades
 
-- [x] **Salvar no LocalStorage**: Método criado para salvar um objeto no LocalStorage.
-- [x] **Editar Nota**: Método criado para editar somente a Nota selecionada.
-- [x] **Excluir Nota**: Método criado para excluir somente a nota selecionada.
-- [x] **Excluir Todas Nota**: Método criado para excluir todas Notas.
-- [x] **Abrir Modal**: Biblioteca [React-Modal](https://github.com/reactjs/react-modal) usada para criar modal.
+- [x] **O usuário pode Criar uma nota.**
+- [x] **O usuário pode Editar uma nota.**
+- [x] **O usuário pode abrir Modal**: Biblioteca [React-Modal](https://github.com/reactjs/react-modal) usada para criação do modal.
+- [x] **O usuário pode Excluir uma nota.**
+- [x] **O usuário pode Excluir Todas Nota ao mesmo tempo.**
+- [x] **Ao fechar a janela do navegador as notas serão armazenadas e quando o Usuário retornar, os dados serão recuperados.**
 
 
 ## 📥 Instalação e execução
