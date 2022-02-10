@@ -19,6 +19,7 @@ Esse Projeto Ig.Note é uma inspiração do repositório [app-ideas](https://git
 
 ---
 ![chrome_NUHJ7eRqJv](https://user-images.githubusercontent.com/80167149/148600274-50d6709e-1f95-42a6-bbbb-c2918a570e21.png) ![chrome_P0DTDYLBRq](https://user-images.githubusercontent.com/80167149/148606968-7dc64a93-2b4b-4204-b559-b149eae5ccb4.png)
+
 ---
 
 ### 🔗 Funcionalidades
@@ -30,6 +31,7 @@ Esse Projeto Ig.Note é uma inspiração do repositório [app-ideas](https://git
 - [x] **O usuário pode Excluir Todas Nota ao mesmo tempo.**
 - [x] **Ao fechar a janela do navegador as notas serão armazenadas e quando o Usuário retornar, os dados serão recuperados.**
 
+---
 
 ## 📥 Instalação e execução
 
