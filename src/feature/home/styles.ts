@@ -6,6 +6,13 @@ const HomeContainerBg = styled.div`
   display: flex;
   padding-top: 24px;
   justify-content: space-around;
+
+  @media screen and (max-width: 1000px) {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
 `
 
 const HomeAside = styled.aside`
@@ -21,6 +28,12 @@ const HomeAside = styled.aside`
     flex-direction: column;
     border-right: 2px solid #616480;
     padding-right: 150px;
+
+    @media screen and (max-width: 1000px) {
+      width: 100%;
+      border: none;
+      padding: 0;
+    }
   }
 
   button {
@@ -31,6 +44,12 @@ const HomeAside = styled.aside`
 const HomeSection = styled.section`
   overflow: auto;
   padding-right: 12px;
+
+  @media screen and (max-width: 1000px) {
+    overflow: visible;
+    align-items: center;
+    padding: 0;
+  }
 
   img {
     height: 300px;

@@ -74,6 +74,10 @@ export const GlobalStyle = createGlobalStyle`
     position: relative;
     border-radius: 0.24rem;
 
+    @media screen and (max-width: 1000px) {
+      max-width: 400px;
+    }
+
     svg {
       margin-right: 4px;
     }
